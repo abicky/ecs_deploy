@@ -88,12 +88,13 @@ module EcsDeploy
           end
           next if arns.empty?
 
-          cl.update_container_instances_state(
-            cluster: config.cluster,
-            container_instances: arns,
-            status: "DRAINING",
-          )
-          @logger.info "Draining instances: region: #{region}, cluster: #{config.cluster}, instance_ids: #{instance_ids.inspect}, container_instance_arns: #{arns.inspect}"
+          # cl.update_container_instances_state(
+          #   cluster: config.cluster,
+          #   container_instances: arns,
+          #   status: "DRAINING",
+          # )
+          # @logger.info "Draining instances: region: #{region}, cluster: #{config.cluster}, instance_ids: #{instance_ids.inspect}, container_instance_arns: #{arns.inspect}"
+          @logger.info "Skip draining instances: region: #{region}, cluster: #{config.cluster}, instance_ids: #{instance_ids.inspect}, container_instance_arns: #{arns.inspect}"
         end
       end
 
